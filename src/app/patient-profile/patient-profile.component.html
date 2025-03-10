@@ -1,0 +1,156 @@
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="/dashboard" class="navbar-brand">Dashboard</a>
+        <ul class="navbar-links">
+            <li>
+                <a href="/diagnosis" class="btn btn-primary">
+                    Input Consultation Details
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container mt-4">
+    <!-- First row: Two main containers side by side -->
+    <div class="row">
+        <!-- Left Container (Personal Info, Medical History, etc.) -->
+        <div class="col-md-8"> <!-- 70% width on medium and up screens -->
+            <!-- Personal Information Section -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3>Personal Information</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6"> <!-- 50% width for each column -->
+                            <p><strong>ID:</strong> {{ patient.id }}</p>
+                            <p><strong>Full Name:</strong> {{ patient.fullName }}</p>
+                            <p><strong>Email:</strong> {{ patient.email }}</p>
+                            <p><strong>Phone:</strong> {{ patient.phoneNumber }}</p>
+                            <p><strong>Date of Birth:</strong> {{ patient.dob }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Age:</strong> {{ patient.age }}</p>
+                            <p><strong>Sex:</strong> {{ patient.sex }}</p>
+                            <p><strong>Address:</strong> {{ patient.homeAddress }}</p>
+                            <p><Strong>Conditions: </Strong><span *ngIf="patient.medicalConditions.includes('DVT')">
+                                    <i class="fas fa-flag" style="color: red;"
+                                        title="Patient has DVT and anticoagulant therapy"> </i>
+                                </span>
+                                &nbsp;
+                                <span *ngIf="patient.knownAllergies.includes('Lidocaine')">
+                                    <i class="fas fa-flag" style="color: violet;"
+                                        title="Patient has allergy at lidocaine"> </i>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Medical History Section -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3>Medical History</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Known Allergies:</strong> {{ patient.knownAllergies || 'N/A' }}</p>
+                            <p><strong>Surgeries or Conditions:</strong> {{ patient.previousSurgeriesOrConditions ||
+                                'N/A' }}</p>
+                            <p><strong>Current Medication:</strong> {{ patient.currentMedicationTreatment || 'N/A' }}
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Other Medical Conditions:</strong>
+                                {{ patient.medicalConditions || 'N/A' }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Treatment History Section -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3>Treatment History</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li *ngFor="let treatment of patient.treatmentHistory">
+                            <strong>{{ treatment.date }}:</strong> {{ treatment.treatment }}
+                            <span>(Dentist: {{ treatment.dentist }})</span>
+                            <p><em>Notes: {{ treatment.notes }}</em></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Appointment History Section -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3>Appointment History</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li *ngFor="let appointment of patient.appointmentHistory">
+                            <i class="fas fa-calendar-check"></i> {{ appointment.date }} at {{ appointment.time }}:
+                            Dentist: {{ appointment.dentist }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Right Container (X-rays, Prescribed Treatments, Appointments, etc.) -->
+        <div class="col-md-4"> <!-- 30% width on medium and up screens -->
+            <app-tooth-chart></app-tooth-chart>
+            <!-- Active Dental Issues Section -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3>Active Dental Issues</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li *ngFor="let issue of patient.activeDentalIssues">{{ issue }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- X-Rays Section with Icons -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3>X-Rays</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li *ngFor="let xray of patient.xRays">
+                            <a href="{{ xray }}" target="_blank">
+                                <i class="fas fa-file-image"></i> View X-Ray Image
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Upcoming Appointment Section -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3>Upcoming Appointment</h3>
+                </div>
+                <div class="card-body">
+                    <p><strong>Date:</strong> {{ patient.upcomingAppointment.date }}</p>
+                    <p><strong>Time:</strong> {{ patient.upcomingAppointment.time }}</p>
+                    <p><strong>Reason:</strong> {{ patient.upcomingAppointment.reason }}</p>
+                    <!-- Reschedule/Cancel Appointment Section -->
+                    <div class="text-center">
+                        <a [href]="patient.rescheduleCancelLink" class="btn btn-warning">Schedule</a>
+                        &nbsp;
+                        <a class="btn btn-warning">Cancel</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

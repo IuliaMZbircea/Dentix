@@ -1,0 +1,42 @@
+.custom-card {
+    max-width: 400px; 
+    margin: auto; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-color: white; 
+  }
+  
+  .custom-card-header {
+    background-color: #3f8da9; /* Light greenish-blue */
+    color: white;
+    text-align: center;
+    border-bottom: 2px solid #3f8da9; /* Accent border */
+  }
+  
+  .custom-card-header h5 {
+    margin: 0;
+    font-size: 1.5rem; /* Larger heading for emphasis */
+  }
+  
+  .form-control {
+    border-radius: 8px; /* Rounded input fields */
+  }
+  
+  .btn-primary {
+    background-color: #3f8da9; /* Use the blue shade for button */
+    border-color: #3f8da9;
+    width: 100%; /* Full-width button */
+  }
+  
+  .btn-primary:disabled {
+    background-color: #3f8da9; 
+  }
+  
+  .text-danger {
+    font-size: 0.875rem; /* Smaller error text */
+  }
+  
+  .card-body {
+    padding: 2rem; /* Add more padding for a clean layout */
+  }
+  

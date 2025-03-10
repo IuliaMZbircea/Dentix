@@ -1,0 +1,207 @@
+.diagnosis-container {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .form-group label {
+    display: flex;
+    align-items: center;
+  }
+  
+  .form-group input[type="checkbox"] {
+    margin-right: 10px; /* Adjust space between checkbox and label */
+  }
+  
+  label {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  textarea {
+    resize: vertical;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    height: 120px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  textarea:focus {
+    border-color: #3f8da9;
+  }
+  
+  button {
+    padding: 12px;
+    font-size: 16px;
+    background-color: #3f8da9;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background-color: #3f8da9;
+  }
+  
+  .teeth-map-section {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .teeth-map-section label {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .teeth-map-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+
+.navbar {
+  background-color: #3f8da9; 
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  margin-left: 1.5rem;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.navbar-links a:hover {
+  color: #cce7f0; /* Lighter shade for hover effect */
+}
+
+.timestamp {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+// Ensure custom styles apply to ng-select elements
+::ng-deep {
+  ng-select {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  ng-select .ng-select-container {
+    background-color: rgba(255, 255, 255, 0.9);  /* White background with slight opacity */
+  }
+
+  ng-select .ng-dropdown-panel {
+    background-color: rgba(255, 255, 255, 0.9);  /* Opaque white background for the dropdown */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional: To add shadow to the dropdown */
+  }
+
+  .ng-select-container:hover {
+    border-color: #3f8da9;
+  }
+
+  .ng-select-container.ng-has-value {
+    background-color: #f5faff;
+  }
+
+  .ng-arrow-wrapper {
+    color: #3f8da9;
+  }
+
+  .ng-value {
+    background-color: #e1f3f8;
+    color: #3f8da9;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-weight: bold;
+  }
+
+  .ng-clear-wrapper {
+    color: #ff4d4d;
+  }
+
+  .ng-option {
+    color: #333;
+    padding: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e1f3f8;
+    }
+  }
+
+  .ng-option-disabled {
+    color: #aaa;
+  }
+}

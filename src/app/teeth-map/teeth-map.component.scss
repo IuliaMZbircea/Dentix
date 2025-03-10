@@ -1,0 +1,87 @@
+
+.legend-container {
+  display: flex;
+  gap: 15px; /* Adjust spacing between legend items */
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px; /* Adds spacing below the SVG */
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.color-box {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+
+.black { background-color: #47403e; }
+.red { background-color: #f13d17; }
+.pink { background-color: #ff7e7e; }
+.brown { background-color: #9c4431; }
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 8px 12px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.container {
+  display: flex; /* Use flexbox for a row layout */
+  justify-content: space-between; /* Space between columns */
+  gap: 20px; /* Adds spacing between the columns */
+  justify-content: center;
+}
+
+.tooth-chart {
+  width: 48%; /* Each column will take 48% of the container width */
+  display: flex; /* Center SVG if necessary */
+  justify-content: center;
+}
+.switch-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.switch-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid #3f8da9;
+  background-color: white;
+  color: #3f8da9;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+
+.switch-container button.active {
+  background-color: #3f8da9;
+  color: white;
+}
+
+.tooth-chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

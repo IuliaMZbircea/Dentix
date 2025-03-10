@@ -1,1 +1,67 @@
-<p>dashboard works!</p>
+<nav class="navbar">
+  <div class="navbar-container">
+    <a href="/dashboard" class="navbar-brand">Dashboard</a>
+    <ul class="navbar-links">
+      <!-- Sign Out Icon Button -->
+      <button class="btn btn-danger" (click)="onSignOut()">
+        <i class="bi bi-box-arrow-right"></i> <!-- Bootstrap Icon for sign out -->
+      </button>
+    </ul>
+  </div>
+</nav>
+<div class="container mt-5">
+  <!-- Greeting and Sign Out Button on the Same Line -->
+  <div class="row mb-4">
+    <div class="col d-flex justify-content-between align-items-center"> 
+      <!-- Greeting Section -->
+      <div>
+        <h2 style="color: #3f8da9;">Welcome, Dr. Iulia Zbircea</h2>
+        <p class="lead">What would you like to do today?</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Actions Section -->
+  <div class="row">
+    <!-- Add New Patient -->
+    <div class="col-md-3 mb-4">
+      <div class="card shadow-sm border-primary">
+        <div class="card-body bg-light">
+          <h5 class="card-title text-primary">Add New Patient</h5>
+          <p class="card-text text-secondary">Quickly add a new patient's details.</p>
+          <a routerLink="/basic-info" class="btn btn-info text-white" (click)="navigateToAddPatient()">Add Patient</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search for Existing Patient -->
+    <div class="col-md-3 mb-4">
+      <div class="card shadow-sm border-primary">
+        <div class="card-body bg-light">
+          <h5 class="card-title text-primary">Search for Patient</h5>
+          <p class="card-text text-secondary">Search for an existing patient and view their medical file.</p>
+          <a routerLink="/search-patient" class="btn btn-info text-white" (click)="navigateToSearchPatient()">Search
+            Patient</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plan New Appointment -->
+    <div class="col-md-3 mb-4">
+      <div class="card shadow-sm border-primary">
+        <div class="card-body bg-light">
+          <h5 class="card-title text-primary">Plan New Appointment</h5>
+          <p class="card-text text-secondary">Schedule an appointment for a patient.</p>
+          <a routerLink="/appointment" class="btn btn-info text-white" (click)="navigateToAddAppointment()">Plan
+            Appointment</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- View Reports -->
+    <div class="col-md-3 mb-4">
+      <div class="card shadow-sm border-primary">
+        <div class="card-body bg-light">
+          <h5 class="card-title text-primary">Calendar</h5>
+          <p class="card-text text-secondary">View your weekly calendar and see upcoming appointments.</p>
+          <a routerLink="/reports" class="btn btn-info text-white" (click)="navigateToCalendar()">View Reports</a>

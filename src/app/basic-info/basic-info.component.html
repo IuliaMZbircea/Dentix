@@ -1,0 +1,165 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <a href="/dashboard" class="navbar-brand">Dashboard</a>
+    <ul class="navbar-links">
+      <!-- Sign Out Icon Button -->
+      <button class="btn btn-danger" (click)="onSignOut()">
+        <i class="bi bi-box-arrow-right"></i> <!-- Bootstrap Icon for sign out -->
+      </button>
+    </ul>
+  </div>
+</nav>
+
+<div class="card">
+  <div class="card-header">
+    <h5>Personal and Medical Details</h5>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #patientInfoForm="ngForm" class="row g-3">
+
+      <!-- Left Column -->
+      <div class="col-md-4">
+        <!-- Auto-generated Patient ID (Read-only) -->
+        <div class="mb-3">
+          <label for="id" class="form-label">Patient ID</label>
+          <input type="text" id="id" class="form-control readonly-field" [value]="patient.id" readonly>
+        </div>
+
+        <!-- First Name -->
+        <div class="mb-3">
+          <label for="firstName" class="form-label">* First Name</label>
+          <input type="text" id="firstName" class="form-control" placeholder="Enter first name" required
+            [(ngModel)]="patient.firstName" name="firstName" #firstName="ngModel">
+          <div class="text-danger" *ngIf="firstName.invalid && firstName.touched">First name is required.</div>
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email (Optional)</label>
+          <input type="email" id="email" class="form-control" placeholder="Enter email" [(ngModel)]="patient.email"
+            name="email" #email="ngModel" [pattern]="'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'">
+          <div class="text-danger" *ngIf="email.invalid && email.touched">Please enter a valid email address.</div>
+        </div>
+      </div>
+
+      <!-- Center Column -->
+      <div class="col-md-4">
+
+        <!-- CNP -->
+        <div class="mb-3">
+          <label for="cnp" class="form-label">* CNP (Romanian ID)</label>
+          <input type="text" id="cnp" class="form-control" placeholder="Enter CNP" required [(ngModel)]="patient.cnp"
+            name="cnp" (input)="onCNPInput()" #cnp="ngModel" maxlength="13">
+
+          <!-- Required Validation -->
+          <div class="text-danger" *ngIf="cnp.invalid && cnp.touched">CNP is required.</div>
+
+          <!-- Invalid CNP Warning -->
+          <div class="text-danger" *ngIf="cnpError">{{ cnpError }}</div>
+        </div>
+
+
+        <!-- Last Name -->
+        <div class="mb-3">
+          <label for="lastName" class="form-label">* Last Name</label>
+          <input type="text" id="lastName" class="form-control" placeholder="Enter last name" required
+            [(ngModel)]="patient.lastName" name="lastName" #lastName="ngModel">
+          <div class="text-danger" *ngIf="lastName.invalid && lastName.touched">Last name is required.</div>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="mb-3">
+          <label for="phone" class="form-label">* Phone Number</label>
+          <div class="input-group">
+            <select id="phone-prefix" class="form-select" [(ngModel)]="patient.phonePrefix" name="phonePrefix" required>
+              <option value="+40">+40 (Romania)</option>
+              <option value="+44">+44 (UK)</option>
+              <option value="+49">+49 (Germany)</option>
+              <option value="+33">+33 (France)</option>
+              <option value="+34">+34 (Spain)</option>
+            </select>
+            <input type="text" id="phone" class="form-control" placeholder="Enter phone number" required
+              [(ngModel)]="patient.phone" name="phone" #phone="ngModel" pattern="^\d{9,15}$">
+          </div>
+          <div class="text-danger" *ngIf="phone.invalid && phone.touched">Phone number must be valid.</div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="col-md-4">
+        <!-- Date of Birth -->
+        <div class="mb-3">
+          <label for="dob" class="form-label">* Date of Birth</label>
+          <input type="date" id="dob" class="form-control readonly-field" [value]="patient.dob" required
+            [(ngModel)]="patient.dob" name="dob" #dob="ngModel" readonly>
+          <div class="text-danger" *ngIf="dob.invalid && dob.touched">Date of Birth is required.</div>
+        </div>
+        <!-- Age -->
+        <div class="mb-3">
+          <label for="age" class="form-label">Age</label>
+          <input type="number" id="age" class="form-control readonly-field" [value]="patient.age" readonly>
+        </div>
+        <!-- Sex -->
+        <div class="mb-3">
+          <label for="sex" class="form-label">Sex</label>
+          <input type="text" id="sex" class="form-control readonly-field" [value]="patient.sex" readonly>
+        </div>
+      </div>
+
+      <!-- Bottom Section -->
+      <div class="col-md-12">
+        <!-- Address -->
+        <div class="mb-3">
+          <label for="address" class="form-label">* Address</label>
+          <input type="text" id="address" class="form-control" placeholder="Enter address" required
+            [(ngModel)]="patient.address" name="address" #address="ngModel">
+          <div class="text-danger" *ngIf="address.invalid && address.touched">Address is required.</div>
+        </div>
+        <!-- Known Allergies -->
+        <div class="mb-3">
+          <label for="allergies" class="form-label">Known Allergies</label>
+          <textarea id="allergies" class="form-control" placeholder="Enter known allergies"
+            [(ngModel)]="patient.allergies" name="allergies" #allergies="ngModel"
+            [readonly]="patient.allergiesNAChecked"></textarea>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="allergiesNA" [(ngModel)]="patient.allergiesNAChecked"
+              name="allergiesNA">
+            <label class="form-check-label" for="allergiesNA">N/A (Not Applicable)</label>
+          </div>
+        </div>
+        <!-- Previous Surgeries -->
+        <div class="mb-3">
+          <label for="surgeries" class="form-label">Previous Surgeries or Conditions</label>
+          <textarea id="surgeries" class="form-control" placeholder="Enter previous surgeries or conditions"
+            [(ngModel)]="patient.surgeries" name="surgeries" #surgeries="ngModel"
+            [readonly]="patient.surgeriesNAChecked"></textarea>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="surgeriesNA" [(ngModel)]="patient.surgeriesNAChecked"
+              name="surgeriesNA">
+            <label class="form-check-label" for="surgeriesNA">N/A (Not Applicable)</label>
+          </div>
+        </div>
+
+        <!-- Current Medication -->
+        <div class="mb-3">
+          <label for="medication" class="form-label">Current Medication Treatment</label>
+          <textarea id="medication" class="form-control" placeholder="Enter current medication treatment"
+            [(ngModel)]="patient.medication" name="medication" #medication="ngModel"
+            [readonly]="patient.medicationNAChecked"></textarea>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="medicationNA" [(ngModel)]="patient.medicationNAChecked"
+              name="medicationNA">
+            <label class="form-check-label" for="medicationNA">N/A (Not Applicable)</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary" [disabled]="patientInfoForm.invalid">
+          Continue
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

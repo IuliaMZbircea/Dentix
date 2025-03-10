@@ -1,0 +1,62 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <a href="/dashboard" class="navbar-brand">Dashboard</a>
+    <ul class="navbar-links">
+    </ul>
+  </div>
+</nav>
+<div class="diagnosis-container">
+  <h2>Diagnosis and Treatment Plan</h2>
+  <p class="timestamp">{{ currentDate }}</p>
+
+  <!-- Diagnosis Details Form -->
+  <form (ngSubmit)="onSubmit()" #patientInfoForm="ngForm">
+    <div class="form-group">
+      <label for="icd10Codes">Select ICD-10 Diagnosis Codes:</label>
+      <ng-select id="icd10Codes" [items]="icd10CodeList" bindLabel="label" bindValue="value"
+        [(ngModel)]="selectedICD10Codes" [multiple]="true"
+        [placeholder]="selectedICD10Codes.length ? '' : 'Select diagnosis codes...'" name="icd10Codes">
+      </ng-select>
+
+    </div>
+    <div class="form-group">
+      <label for="diagnosisNotes">Diagnosis Notes:</label>
+      <textarea id="diagnosisNotes" rows="4" placeholder="Enter diagnosis details here..." [(ngModel)]="diagnosisNotes"
+        name="diagnosisNotes"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="treatmentPlan">Treatment Plan:</label>
+      <textarea id="treatmentPlan" rows="4" placeholder="Enter treatment plan here..." [(ngModel)]="treatmentPlan"
+        name="treatmentPlan"></textarea>
+    </div>
+
+    <!-- Teeth Map Section -->
+    <div class="form-group">
+      <label for="teethMap">Teeth Map:</label>
+      <app-teeth-map></app-teeth-map>
+    </div>
+
+    <!-- Prescribe Work Leave Checkbox -->
+    <div class="form-group work-leave-checkbox">
+      <label for="workLeave">
+        <input type="checkbox" id="workLeave" [(ngModel)]="isWorkLeavePrescribed" name="workLeave">
+        Prescribe Work Leave
+      </label>
+    </div>
+
+    <!-- Work Leave Duration (Only if Work Leave is Prescribed) -->
+    <div *ngIf="isWorkLeavePrescribed" class="form-group">
+      <label for="leaveDuration">Number of Days for Work Leave:</label>
+      <input type="number" id="leaveDuration" [(ngModel)]="leaveDuration" name="leaveDuration" min="1"
+        placeholder="Enter number of days">
+    </div>
+    <!-- Generate Work Leave Button (Only Displayed if Work Leave is Prescribed) -->
+    <div *ngIf="isWorkLeavePrescribed">
+      <button type="button" [disabled]="!leaveDuration" (click)="generatePDF()">Generate Work Leave</button>
+    </div>
+
+    <!-- Save Diagnosis Button (Always Active) -->
+    <button type="submit">Save Diagnosis</button>
+  </form>
+</div>

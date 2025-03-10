@@ -1,0 +1,39 @@
+<nav class="navbar">
+    <div class="navbar-container">
+      <a href="/dashboard" class="navbar-brand">Dashboard</a>
+      
+    </div>
+  </nav>
+<div class="calendar-container">
+    <div class="calendar-header">
+      <button (click)="prevWeek()">Previous Week</button>
+      <span>{{ currentWeekLabel }}</span>
+      <button (click)="nextWeek()">Next Week</button>
+    </div>
+
+    <div class="calendar-grid">
+      
+      <!-- Weekday header row -->
+      <div class="weekday-headers">
+        <div *ngFor="let day of daysInWeek" class="weekday">
+          {{ day.label }}
+        </div>
+      </div>
+
+      <!-- Calendar grid -->
+      <div class="days">
+        <div *ngFor="let day of daysInWeek" class="day">
+          <div class="patients">
+            <div *ngFor="let patient of day.patients" class="patient" [ngClass]="{
+                'consultation': patient.type === 'consultation',
+                'filling': patient.type === 'filling',
+                'root-canal': patient.type === 'root-canal',
+                'extraction': patient.type === 'extraction'
+              }">
+                {{ patient.name }} - {{ patient.time }} {{patient.type}}
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

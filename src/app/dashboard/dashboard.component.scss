@@ -1,0 +1,133 @@
+/* Global Styles */
+body {
+  background-color: #f8f9fa;
+  color: #333; /* Default text color */
+}
+
+/* Card Titles */
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #3f8da9; /* Apply primary color to card titles */
+}
+
+/* Heading Styles */
+h2.text-primary {
+  color: #3f8da9; /* Apply primary color to the greeting heading */
+}
+
+/* Card Body Text */
+.card-body {
+  color: #333; /* Default text color inside cards */
+}
+
+/* Ensure the color of text within the card body, including links and buttons */
+.card-body .card-text, 
+.card-body p, 
+.card-body span, 
+.card-body .card-title {
+  color: #3f8da9 !important; /* Ensure all text inside card body gets primary color */
+}
+
+/* Button Customization */
+.btn-info {
+  background-color: #3f8da9;
+  border-color: #3f8da9;
+}
+
+.btn-info:hover {
+  background-color: #8abfb7;
+  border-color: #8abfb7;
+}
+
+/* Card Borders */
+.card {
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.card-body.bg-light {
+  background-color: #f0f8f8;
+}
+
+/* Ensuring the text inside .card-body.bg-light is primary color */
+.card-body.bg-light .card-text,
+.card-body.bg-light p,
+.card-body.bg-light .card-title {
+  color: #3f8da9 !important;
+}
+
+/* Ensuring the color of button text */
+.btn-info {
+  color: white !important; /* Force button text color to remain white */
+}
+
+/* Card Text Links (For Links like 'Add Patient') */
+.card-body .btn-info {
+  color: #fff; /* Button text inside cards should be white */
+}
+
+/* For all text within .card-body */
+.card-body p, 
+.card-body span,
+.card-body .card-title {
+  color: #3f8da9 !important; /* Apply primary color to all text content */
+}
+
+
+   
+.navbar {
+  background-color: #3f8da9; /* Same as your form header */
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  margin-left: 1.5rem;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.navbar-links a:hover {
+  color: #cce7f0; /* Lighter shade for hover effect */
+}
+
+
