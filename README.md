@@ -14,6 +14,12 @@ The **Dentist Management System** is a software solution designed to help dental
 - **User Management**: Secure access with role-based authentication.
 - **Reports & Analytics**: Generate reports for clinic performance analysis.
 
+![Teeth Map Example](public/adult-filledin.png)
+![Teeth Map Example](public/adultmap.png)
+![Teeth Map Example](public/childmap.png)
+
+
+
 ## Technologies Used
 - **Frontend**: Angular
 - **Backend**: Not yet implemented
