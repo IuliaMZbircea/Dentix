@@ -11,8 +11,6 @@ The **Dentist Management System** is a software solution designed to help dental
 - **Appointment Scheduling**: Book, reschedule, and cancel appointments.
 - **Calendar View**: View and manage the medic's calendar for better appointment planning.
 - **Treatment Records**: Maintain records of treatments and procedures.
-- **User Management**: Secure access with role-based authentication.
-- **Reports & Analytics**: Generate reports for clinic performance analysis.
 
 <p align="center">
   <img src="/public/adultmap.png" alt="Adult Teeth Map" width="30%" />
