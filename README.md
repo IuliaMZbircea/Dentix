@@ -15,7 +15,6 @@ The **Dentist Management System** is a software solution designed to help dental
 - **Reports & Analytics**: Generate reports for clinic performance analysis.
 
 <p align="center">
-  <img src="/public/adult-filled.png" alt="Adult Filled Teeth Map" width="30%" />
   <img src="/public/adultmap.png" alt="Adult Teeth Map" width="30%" />
   <img src="/public/childmap.png" alt="Child Teeth Map" width="30%" />
 </p>
