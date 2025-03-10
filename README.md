@@ -34,21 +34,6 @@ Ensure you have the following installed:
 - Node.js
 - Git
 
-### Steps
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/your-username/DentistManagementSystem.git
-   cd DentistManagementSystem
-   ```
-2. Install dependencies:
-   ```sh
-   npm install  # For Angular frontend
-   ```
-3. Run the application:
-   ```sh
-   npm start  # For frontend (Angular)
-   ```
-
 ## Usage
 - Navigate to the application URL in your browser.
 - Register/Login to access the dashboard.
