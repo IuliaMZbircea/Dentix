@@ -14,7 +14,7 @@ The **Dentist Management System** is a software solution designed to help dental
 - **User Management**: Secure access with role-based authentication.
 - **Reports & Analytics**: Generate reports for clinic performance analysis.
 
-![madical-record-platform](/public/adult-filledin.png)
+![madical-record-platform](/public/adult-filled.png)
 ![madical-record-platform](/public/adultmap.png)
 ![madical-record-platform](/public/childmap.png)
 
